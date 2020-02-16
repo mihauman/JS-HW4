@@ -2,9 +2,9 @@ const students = ["Саша", "Игорь", "Лена", "Ира", "Алексе�
 const themes = ["Дифференциальные уравнения", "Теория автоматов", "Алгоритмы и структуры данных"];
 const marks = [4, 5, 5, 3, 4, 5];
 const pairs = [
-[students[0],students[2]],
-   [students[1],students[3]],
-    [students[4],students[5]]];
+[students[0],'и',students[2]],
+   [students[1],'и',students[3]],
+    [students[4],'и',students[5]]];
 
 const pairThemes = [ 
 [pairs[0],themes[0]],
