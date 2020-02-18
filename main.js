@@ -24,12 +24,12 @@ const pairThemes = [
  [pairThemes[1],marks[Math.floor(Math.random() * marks.length)]],
   [pairThemes[2],marks[Math.floor(Math.random() * marks.length)]]];
   
-//#1
-for (i = 0; i < pairs.length; i++) { alert(pairs[i]); }
-//#2
-for (i = 0; i < pairThemes.length; i++) { alert(pairThemes[i]); }
-//#3
-for (i = 0; i < studentMarks.length; i++) { alert(studentMarks[i]); }
-//#4
-for (i = 0; i < pairMarks.length; i++) { alert(pairMarks[i]); }
+document.write('#1');
+for (i = 0; i < pairs.length; i++) { document.write(`<li>${pairs[i]}</li>`); }
+document.write('#2');
+for (i = 0; i < pairThemes.length; i++) { document.write(`<li>${pairThemes[i]}</li>`); }
+document.write('#3');
+for (i = 0; i < studentMarks.length; i++) { document.write(`<li>${studentMarks[i]}</li>`); }
+document.write('#4');
+for (i = 0; i < pairMarks.length; i++) { document.write(`<li>${pairMarks[i]}</li>`); }
  
