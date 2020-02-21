@@ -1,35 +1,47 @@
 const students = ["Саша", "Игорь", "Лена", "Ира", "Алексей", "Светлана"];
 const themes = ["Дифференциальные уравнения", "Теория автоматов", "Алгоритмы и структуры данных"];
 const marks = [4, 5, 5, 3, 4, 5];
-const pairs = [
-[students[0],'и',students[2]],
-   [students[1],'и',students[3]],
-    [students[4],'и',students[5]]];
-
-const pairThemes = [ 
-[pairs[0],themes[0]],
- [pairs[1],themes[1]],
-  [pairs[2],themes[2]]];
-
-    const studentMarks = [
-  [students[0],marks[0]],
-   [students[1],marks[1]],
-    [students[2],marks[2]],
-     [students[3],marks[3]],
-      [students[4],marks[4]],
-       [students[5],marks[5]]];
-
-  const pairMarks = [
-  [pairThemes[0],marks[Math.floor(Math.random() * marks.length)]],
- [pairThemes[1],marks[Math.floor(Math.random() * marks.length)]],
-  [pairThemes[2],marks[Math.floor(Math.random() * marks.length)]]];
-  
-document.write('#1');
-for (i = 0; i < pairs.length; i++) { document.write(`<li>${pairs[i]}</li>`); }
-document.write('#2');
-for (i = 0; i < pairThemes.length; i++) { document.write(`<li>${pairThemes[i]}</li>`); }
-document.write('#3');
-for (i = 0; i < studentMarks.length; i++) { document.write(`<li>${studentMarks[i]}</li>`); }
-document.write('#4');
-for (i = 0; i < pairMarks.length; i++) { document.write(`<li>${pairMarks[i]}</li>`); }
+//#1
+const getpairs = (students) =>{
+const pairs = [];
+  for (let i = 0; i < students.length; i+=2) {
+      pairs.push(students.slice(i, i+2))    
+    }
+    return pairs;
+};
+    console.log (getpairs(students));
+//#2
+const pairs =  getpairs(students); 
+const getThemes = (pairs, themes) => {
+const themesForStudents = [];
+  for (let i = 0; i < pairs.length; i++) {
+        themesForStudents.push([pairs[i].join(' и '), themes[i]])
+    }
+    return themesForStudents;
+};
+    console.log (getThemes(pairs, themes));
+//#3
+const getStudentsMarks = (students, marks) => {
+const marksForStudents = [];
+  for (let i = 0; i < students.length; i++) {
+        marksForStudents.push([students[i],marks[i]])
+    }
+    return marksForStudents;
+};
+console.log (getStudentsMarks(students, marks));
+//#4
+const themesForStudents = getThemes(pairs, themes);
+const getRandomMarksForTasks =(themesForStudents, marks) => {
+const randomMarksForStudents = [];
+  for (let i = 0; i < themesForStudents.length; i++) {
+    randomMarksForStudents.push([themesForStudents[i],marks[Math.floor(Math.random() * marks.length)]])
+    }
+     return randomMarksForStudents;
+};
+console.log (getRandomMarksForTasks(themesForStudents, marks));
+//#Вивід
+document.writeln(`<p> Пари: ${getpairs(students)}</p>`);
+document.writeln(`<p> Теми: ${getThemes(pairs, themes)} </p>`);
+document.writeln(`<p> Оцінки: ${getStudentsMarks(students, marks)}</p>`);
+document.writeln(`<p> Рандомні оцінки: ${getRandomMarksForTasks(themesForStudents, marks)}</p>`);
  
